@@ -110,7 +110,7 @@ namespace Tests
             var refilAccountBtn = new Header(driver);
 
             Assert.That(refilAccountBtn.refillAccountBtnDisplyed(),
-                Is.True, "Нет кнопки Refill Account");
+                Is.True, "Нет кнопки Refill Account.");
 
         }
     }
