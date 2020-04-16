@@ -13,15 +13,23 @@ namespace Pages
 
         #region Locators
         By refillAccountBtnLocator = By.CssSelector(".purchase.option button.open-purchase.button.popup-trigger");
+        By upgradeAccountBtnLocator = By.CssSelector(".subscribe.option button.open-purchase.button.popup-trigger");
         #endregion
-        
+
         #region Methods
-        
-        public bool refillAccountBtnDisplyed()
+
+        public bool RefillAccountBtnDisplyed()
         {
             return new WebDriverWait(driver, timeToWait)
                 .Until(d => d.FindElement(refillAccountBtnLocator).Displayed);
             
+        }
+
+        public bool UpgradeAccountBtnDisplyed()
+        {
+            return new WebDriverWait(driver, timeToWait)
+                .Until(d => d.FindElement(upgradeAccountBtnLocator).Displayed);
+
         }
         #endregion
     }

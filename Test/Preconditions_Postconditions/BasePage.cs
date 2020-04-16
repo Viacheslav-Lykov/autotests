@@ -16,7 +16,7 @@ namespace Pages
             this.driver = driver;
         }
 
-        protected TimeSpan timeToWait = TimeSpan.FromSeconds(10);
+        protected TimeSpan timeToWait = TimeSpan.FromSeconds(16);
     }
 
     //public abstract class Header

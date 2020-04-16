@@ -17,7 +17,7 @@ namespace Tests
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl("https://www.dating.com.41.stage/");
+            driver.Navigate().GoToUrl("https://www.dating.030.npdev.lan/");
         }
 
         [TearDown]

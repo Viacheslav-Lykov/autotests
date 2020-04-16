@@ -70,7 +70,7 @@ namespace Tests
 
             var refilAccountBtn = new Header(driver);
 
-            Assert.That(refilAccountBtn.refillAccountBtnDisplyed(),
+            Assert.That(refilAccountBtn.RefillAccountBtnDisplyed(),
                 Is.True, "Нет кнопки Refill Account");
                         
         }
@@ -78,39 +78,59 @@ namespace Tests
         [Test]
         public void CreationUserByCreateYourAccount()
         {
-            //new MainPage(driver)
-            //    .ClickSignInWithEmailBtn()
-            //    .ClickCreateYourAccountBtn()
-            //    .SendKeysNameOrNicknameField()
-            //    .SendKeysRealEmailField()
-            //    .SendKeysPasswordFieldinCreateYourAccoun()
-            //    .ClickCreateAccountBtn();
-
             new MainPage(driver)
                 .ClickSignInWithEmailBtn()
                 .ClickCreateYourAccountBtn()
                 .SendKeysNameOrNicknameField()
                 .SendKeysRealEmailField()
                 .SendKeysPasswordFieldinCreateYourAccoun()
-                .ClickCreateAccountBtn()
-                .SelectSexIAmAonAboutYouForm()
-                .SelectSexSeekingAonAboutYouForm()
+                .ClickCreateAccountBtn();
+
+            System.Threading.Thread.Sleep(14000);
+
+
+            new Windows_of_creation(driver)
+                .ClickSexIAmAonAboutYouFormMale()
+                .ClickSexSeekingAonAboutYouFormFemale();
+
+            System.Threading.Thread.Sleep(2000);
+
+            new Windows_of_creation(driver)
                 .SelectMounthonAboutYouForm()
                 .SelectDayonAboutYouForm()
-                .SelectYearonAboutYouForm()
-                .ClickNextBtnonAboutYou()
-                .ClickNextBtnonSomeInterestingDetailsAboutYou()
-                .ClickNextBtnonAboutYourIdealPartner()
-                .ClickNextBtnonYourInterests()
-                .ClickCompleteBtnonAddPhotoGetNoticed();
+                .SelectYearonAboutYouForm();
 
+            System.Threading.Thread.Sleep(2000);
+
+            new Windows_of_creation(driver)
+                .ClickNextBtnonAboutYou();
+
+            System.Threading.Thread.Sleep(2000);
+
+            new Windows_of_creation(driver)
+                .ClickNextBtnonSomeInterestingDetailsAboutYou();
+
+            System.Threading.Thread.Sleep(2000);
+
+            new Windows_of_creation(driver)
+                .ClickNextBtnonAboutYourIdealPartner();
+
+            System.Threading.Thread.Sleep(2000);
+
+            new Windows_of_creation(driver)
+                .ClickNextBtnonYourInterests();
+
+            System.Threading.Thread.Sleep(2000);
+
+            new Windows_of_creation(driver)
+                .ClickCompleteBtnonAddPhotoGetNoticed();
 
             System.Threading.Thread.Sleep(6000);
 
-            var refilAccountBtn = new Header(driver);
+            var upgradeAccountBtn = new Header(driver);
 
-            Assert.That(refilAccountBtn.refillAccountBtnDisplyed(),
-                Is.True, "Нет кнопки Refill Account.");
+            Assert.That(upgradeAccountBtn.UpgradeAccountBtnDisplyed(),
+                Is.True, "Создать профиль не удалось (нет кнопки Upgrade account)");
 
         }
     }

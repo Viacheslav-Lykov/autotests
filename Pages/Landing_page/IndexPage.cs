@@ -181,40 +181,50 @@ namespace Pages
         }
 
         //my added methods
-        public SignUpWithEmailForm SendKeysNameOrNicknameField()
+        public SignUpWithEmailForm SendKeysNameOrNicknameField(string name = null)
         {
             Random rnd = new Random();
 
-            int fignya = rnd.Next(999, 9999);
+            int random_index = rnd.Next(999, 9999);
+
+            if (name == null)
+                name = "test user from slavik " + random_index;
+
 
             new WebDriverWait(driver, timeToWait)
-                .Until(d => d.FindElement(nameOrNicknameFieldLocator)).SendKeys("test user from slavik " + fignya);
+                .Until(d => d.FindElement(nameOrNicknameFieldLocator)).SendKeys(name);
 
             return this;
         }
 
-        public SignUpWithEmailForm SendKeysRealEmailField()
+        public SignUpWithEmailForm SendKeysRealEmailField(string name = null)
         {
 
             Random rnd = new Random();
 
-            int fignya = rnd.Next(999, 9999);
+            int random_index = rnd.Next(999, 9999);
+
+            if (name == null)
+                name = "32sss" + random_index + "sss21421_test@test.test";
 
             new WebDriverWait(driver, timeToWait)
-                .Until(d => d.FindElement(realEmailFieldLocator)).SendKeys("32sss" + fignya + "sss21421_test@test.test");
+                .Until(d => d.FindElement(realEmailFieldLocator)).SendKeys(name);
 
             return this;
         }
 
-        public SignUpWithEmailForm SendKeysPasswordFieldinCreateYourAccoun()
+        public SignUpWithEmailForm SendKeysPasswordFieldinCreateYourAccoun(string name = null)
         {
 
             Random rnd = new Random();
 
-            int fignya = rnd.Next(999, 9999);
+            int random_index = rnd.Next(999, 9999);
+
+            if (name == null)
+                name = "1234" + random_index;
 
             new WebDriverWait(driver, timeToWait)
-                .Until(d => d.FindElement(passwordFieldinCreateYourAccounLocator)).SendKeys("1234" + fignya);
+                .Until(d => d.FindElement(passwordFieldinCreateYourAccounLocator)).SendKeys(name);
 
             return this;
         }
