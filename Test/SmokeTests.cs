@@ -68,11 +68,14 @@ namespace Tests
 
             System.Threading.Thread.Sleep(6000);
 
-            var refilAccountBtn = new Header(driver);
+            //var refilAccountBtn = new Header(driver);
 
-            Assert.That(refilAccountBtn.RefillAccountBtnDisplyed(),
+            //Assert.That(refilAccountBtn.RefillAccountBtnDisplyed(),
+            //    Is.True, "Нет кнопки Refill Account");
+
+            Assert.That(new Header(driver).RefillAccountBtnDisplyed(),
                 Is.True, "Нет кнопки Refill Account");
-                        
+
         }
 
         [Test]
@@ -81,9 +84,9 @@ namespace Tests
             new MainPage(driver)
                 .ClickSignInWithEmailBtn()
                 .ClickCreateYourAccountBtn()
-                .SendKeysNameOrNicknameField()
-                .SendKeysRealEmailField()
-                .SendKeysPasswordFieldinCreateYourAccoun()
+                .TypeRandowStringToNameOrNicknameField()
+                .TypeRandowStringToRealEmailField()
+                .TypeRandowStringToRPasswordFieldinCreateYourAccoun()
                 .ClickCreateAccountBtn();
 
             System.Threading.Thread.Sleep(14000);
@@ -133,5 +136,44 @@ namespace Tests
                 Is.True, "Создать профиль не удалось (нет кнопки Upgrade account)");
 
         }
+
+        [Test]
+        public void FirstPurchaseByCard()
+        {
+            CreationUserByCreateYourAccount();
+            //для ускорения проверки (пропуска регистрации автотестом) можно закоментить прдыдущую строку и раскоментить следующую
+            //driver.Navigate().GoToUrl("https://www.dating.com.20.stage/people/#afid=100500&token=c89939d3-0d8c-4ef5-ab26-596a96861348");
+
+            System.Threading.Thread.Sleep(6000);
+
+            new Header(driver)
+                 .ClickUpgradeAccountBtn();
+
+            System.Threading.Thread.Sleep(2500);
+
+            new PurchaseFoarm(driver)
+                .TypeRandowStringToCardNumberField()
+                .SelectMounthOfCard()
+                .SelectYearOfCard()
+                .TypeRandowStringToCvvCardField()
+                .TypeRandowStringToNameOnCardField()
+                .ClickPurchaseCreditsOnPurchaseFoarmBtn();
+
+            System.Threading.Thread.Sleep(3600);
+
+            Assert.That(new Notifications(driver).YouHavePurchased20CreditsSystemMessageInfoDisplyed(),
+                Is.True, "Нет уведомления о купленых кредитах");
+
+            new Menu(driver)
+                .ClickMenuSandwithBtn()
+                .ClickMyProfileInMenuBtn();
+
+            System.Threading.Thread.Sleep(3800);
+                        
+            Assert.That(new OwnProfile(driver).takeValueOfCredits(),
+                Does.Contain("150"), "Нет начисленных кредитов");
+                        
+        }
+
     }
 }

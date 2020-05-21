@@ -84,34 +84,25 @@ namespace Pages
 
         //my added methods
 
-        public SignInWithEmailForm ClickYourEmailField()
+        public SignInWithEmailForm SendKeysYourEmailField(string email = null)
         {
+            if (email == null)
+                email = "dcUMT_1588788720740_test@dating.com";
+
             new WebDriverWait(driver, timeToWait)
-                .Until(d => d.FindElement(yourEmailFieldLocator)).Click();
+                .Until(d => d.FindElement(yourEmailFieldLocator)).SendKeys(email);
 
             return this;
         }
 
-        public SignInWithEmailForm ClickPasswordField()
+        public SignInWithEmailForm SendKeysPasswordField(string password = null)
         {
+
+            if (password == null)
+                password = "sdvtest123";
+
             new WebDriverWait(driver, timeToWait)
-                .Until(d => d.FindElement(passwordFieldLocator)).Click();
-
-            return this;
-        }
-
-        public SignInWithEmailForm SendKeysYourEmailField()
-        {
-            new WebDriverWait(driver, timeToWait)
-                .Until(d => d.FindElement(yourEmailFieldLocator)).SendKeys("dcUMT_1585125431853_test@dating.com");
-
-            return this;
-        }
-
-        public SignInWithEmailForm SendKeysPasswordField()
-        {
-            new WebDriverWait(driver, timeToWait)
-                .Until(d => d.FindElement(passwordFieldLocator)).SendKeys("sdvtest123");
+                .Until(d => d.FindElement(passwordFieldLocator)).SendKeys(password);
 
             return this;
         }
@@ -181,7 +172,7 @@ namespace Pages
         }
 
         //my added methods
-        public SignUpWithEmailForm SendKeysNameOrNicknameField(string name = null)
+        public SignUpWithEmailForm TypeRandowStringToNameOrNicknameField(string name = null)
         {
             Random rnd = new Random();
 
@@ -197,7 +188,7 @@ namespace Pages
             return this;
         }
 
-        public SignUpWithEmailForm SendKeysRealEmailField(string name = null)
+        public SignUpWithEmailForm TypeRandowStringToRealEmailField(string name = null)
         {
 
             Random rnd = new Random();
@@ -213,7 +204,7 @@ namespace Pages
             return this;
         }
 
-        public SignUpWithEmailForm SendKeysPasswordFieldinCreateYourAccoun(string name = null)
+        public SignUpWithEmailForm TypeRandowStringToRPasswordFieldinCreateYourAccoun(string name = null)
         {
 
             Random rnd = new Random();

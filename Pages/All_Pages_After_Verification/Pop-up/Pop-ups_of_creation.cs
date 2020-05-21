@@ -48,22 +48,6 @@ namespace Pages
             return this;
         }
 
-        public Windows_of_creation SendKeysNameOrNicknameFieldonAboutYou(string name = null)
-        {
-
-            Random rnd = new Random();
-
-            int random_index = rnd.Next(999, 9999);
-
-            if (name == null)
-                name = "PROVEROCHKA" + random_index;
-
-            new WebDriverWait(driver, timeToWait)
-                .Until(d => d.FindElement(nameOrNicknameFieldLocator)).SendKeys(name);
-
-            return this;
-        }
-
         public Windows_of_creation SelectMounthonAboutYouForm()
         {
             new WebDriverWait(driver, timeToWait)

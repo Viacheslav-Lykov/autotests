@@ -17,7 +17,7 @@ namespace Tests
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl("https://www.dating.030.npdev.lan/");
+            driver.Navigate().GoToUrl("https://www.dating.com.20.stage/");
         }
 
         [TearDown]
@@ -25,5 +25,6 @@ namespace Tests
         {
             driver.Quit();
         }
+        
     }
 }
